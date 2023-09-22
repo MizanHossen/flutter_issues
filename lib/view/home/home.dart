@@ -26,49 +26,49 @@ class Home extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Obx(
-        () => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // *********************************************************** Header Section & Search ************************************
-              Text(
-                "Issues List",
-                style: kHeadingTextStyle,
-              ),
-              gapHeight(size: 10),
-              SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.05,
-                child: TextFormField(
-                  cursorColor: kPrimaryColor,
-                  decoration: InputDecoration(
-                    fillColor: white,
-                    labelStyle: kTitleTextstyle.copyWith(fontSize: 12.sp),
-                    hintText: "Search ",
-                    hintStyle: kSubtitleStye,
-                    prefixIcon: const Icon(Icons.search),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(60.r),
-                      borderSide:
-                          const BorderSide(color: kPrimaryColor, width: 0.0),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(60.r),
-                      borderSide:
-                          const BorderSide(color: kPrimaryColor, width: 0.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(60.r),
-                      borderSide:
-                          const BorderSide(color: kPrimaryColor, width: 0.0),
-                    ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // *********************************************************** Header Section & Search ************************************
+            Text(
+              "Issues List",
+              style: kHeadingTextStyle,
+            ),
+            gapHeight(size: 10),
+            SizedBox(
+              height: MediaQuery.sizeOf(context).height * 0.05,
+              child: TextFormField(
+                cursorColor: kPrimaryColor,
+                decoration: InputDecoration(
+                  fillColor: white,
+                  labelStyle: kTitleTextstyle.copyWith(fontSize: 12.sp),
+                  hintText: "Search ",
+                  hintStyle: kSubtitleStye,
+                  prefixIcon: const Icon(Icons.search),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(60.r),
+                    borderSide:
+                        const BorderSide(color: kPrimaryColor, width: 0.0),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(60.r),
+                    borderSide:
+                        const BorderSide(color: kPrimaryColor, width: 0.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(60.r),
+                    borderSide:
+                        const BorderSide(color: kPrimaryColor, width: 0.0),
                   ),
                 ),
               ),
-              gapHeight(size: 10),
-              Expanded(
-                child: homeController.issuesData.isEmpty
+            ),
+            gapHeight(size: 10),
+            Expanded(
+              child: Obx(
+                () => homeController.issuesData.isEmpty
                     ? Center(
                         child: Text(
                           "No Data :-(",
@@ -87,22 +87,25 @@ class Home extends StatelessWidget {
                         },
                       ),
               ),
-              if (homeController.isLoading.value)
-                const Center(
-                  child: CupertinoActivityIndicator(
-                    radius: 30,
-                    color: kPrimaryColor,
-                  ),
-                ),
-              // if (!homeController.isLimit.value &&
-              //     !homeController.isLoading.value)
-              //   const Center(
-              //     child: CircularProgressIndicator(
-              //       color: Colors.red,
-              //     ),
-              //   ),
-            ],
-          ),
+            ),
+            Obx(
+              () => homeController.isLoading.value
+                  ? const Center(
+                      child: CupertinoActivityIndicator(
+                        radius: 30,
+                        color: kPrimaryColor,
+                      ),
+                    )
+                  : Container(),
+            )
+            // if (!homeController.isLimit.value &&
+            //     !homeController.isLoading.value)
+            //   const Center(
+            //     child: CircularProgressIndicator(
+            //       color: Colors.red,
+            //     ),
+            //   ),
+          ],
         ),
       ),
     );

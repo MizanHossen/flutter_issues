@@ -19,84 +19,81 @@ class IssuesCard extends StatelessWidget {
 
     String createData = data.createdAt.toString();
     String formatedDate = homeController.convertDate(createData);
-    return Container(
-      child: Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      data.title.toString(),
-                      style:
-                          kTitleTextstyle.copyWith(fontWeight: FontWeight.bold),
-                    ),
-                    gapHeight(size: 5),
-                    Text(
-                      data.body.toString(),
-                      style: kSubtitleStye,
-                    ),
-                  ],
-                ),
-              ),
-
-              //
-
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    formatedDate,
+                    data.title.toString(),
                     style:
                         kTitleTextstyle.copyWith(fontWeight: FontWeight.bold),
                   ),
                   gapHeight(size: 5),
                   Text(
-                    data.user!.login.toString(),
+                    data.body.toString(),
                     style: kSubtitleStye,
                   ),
                 ],
-              )
-            ],
-          ),
-          gapHeight(size: 10),
-          GridView.builder(
-            padding: EdgeInsets.zero,
-            itemCount: data.labels!.length,
-            shrinkWrap: true,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              childAspectRatio: 3.5.r,
-              crossAxisSpacing: 6,
-              mainAxisSpacing: 6,
+              ),
             ),
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: (ctx, index) {
-              return Container(
-                // padding:
-                //     EdgeInsets.symmetric(horizontal: 10.r, vertical: 5.r),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: kPrimaryColor,
+
+            //
+
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  formatedDate,
+                  style: kTitleTextstyle.copyWith(fontWeight: FontWeight.bold),
                 ),
-                child: Center(
-                  child: Text(
-                    data.labels![index].name.toString(),
-                    style: kSubtitleStye.copyWith(color: white),
-                  ),
+                gapHeight(size: 5),
+                Text(
+                  data.user!.login.toString(),
+                  style: kSubtitleStye,
                 ),
-              );
-            },
+              ],
+            )
+          ],
+        ),
+        gapHeight(size: 10),
+        GridView.builder(
+          padding: EdgeInsets.zero,
+          itemCount: data.labels!.length,
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            childAspectRatio: 3.5.r,
+            crossAxisSpacing: 6,
+            mainAxisSpacing: 6,
           ),
-          gapHeight(size: 5),
-          const Divider(
-            color: kPrimaryColor,
-          )
-        ],
-      ),
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (ctx, index) {
+            return Container(
+              // padding:
+              //     EdgeInsets.symmetric(horizontal: 10.r, vertical: 5.r),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: kPrimaryColor,
+              ),
+              child: Center(
+                child: Text(
+                  data.labels![index].name.toString(),
+                  style: kSubtitleStye.copyWith(color: white),
+                ),
+              ),
+            );
+          },
+        ),
+        gapHeight(size: 5),
+        const Divider(
+          color: kPrimaryColor,
+        )
+      ],
     );
   }
 }
