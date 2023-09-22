@@ -16,7 +16,6 @@ const kActiveStatus = Color(0xff22C375);
 const kShadowColor = Color(0xffF4F2EC);
 Color ksubtitleColor = const Color(0xff494A4B).withOpacity(0.4);
 
-// final kdefaultPadding = SizeBuilder().setSp(20);
 final kdefaultPadding = 20.r;
 
 // Text Style
@@ -34,7 +33,6 @@ TextStyle kTitleTextstyle = TextStyle(
 
 const kSubtitleStye = TextStyle(
   fontSize: 12,
-  //fontSize: getTextSize(14),
   color: kSecounderyTextColor,
   // fontWeight: FontWeight.w300,
 );
