@@ -20,7 +20,7 @@ Color ksubtitleColor = const Color(0xff494A4B).withOpacity(0.4);
 final kdefaultPadding = 20.r;
 
 // Text Style
-TextStyle kHeadingTextStyle = TextStyle(
+TextStyle kHeadingTextStyle = const TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.w900,
   color: kTextColor,
@@ -32,7 +32,7 @@ TextStyle kTitleTextstyle = TextStyle(
   fontWeight: FontWeight.w400,
 );
 
-final kSubtitleStye = TextStyle(
+const kSubtitleStye = TextStyle(
   fontSize: 12,
   //fontSize: getTextSize(14),
   color: kSecounderyTextColor,
