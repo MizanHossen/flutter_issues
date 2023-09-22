@@ -21,19 +21,19 @@ final kdefaultPadding = 20.r;
 
 // Text Style
 TextStyle kHeadingTextStyle = TextStyle(
-  fontSize: 20.sp,
+  fontSize: 20,
   fontWeight: FontWeight.w900,
   color: kTextColor,
 );
 
 TextStyle kTitleTextstyle = TextStyle(
-  fontSize: 15.sp,
+  fontSize: 15,
   color: kTextColor.withOpacity(0.84),
   fontWeight: FontWeight.w400,
 );
 
 final kSubtitleStye = TextStyle(
-  fontSize: 12.sp,
+  fontSize: 12,
   //fontSize: getTextSize(14),
   color: kSecounderyTextColor,
   // fontWeight: FontWeight.w300,
